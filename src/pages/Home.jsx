@@ -1,9 +1,12 @@
 import React from "react";
+import Main from "../components/Main";
 
-function Main() {
+function Home() {
     return (
-        <div>Home</div>
+        <div>
+            <Main />
+        </div>
     )
 }
 
-export default Main
+export default Home
