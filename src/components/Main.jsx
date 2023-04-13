@@ -1,6 +1,6 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
-import requests from '../Request';
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import requests from "../Request";
 
 function Main() {
 	const [movies, setMovies] = useState([]);
@@ -12,13 +12,13 @@ function Main() {
 		});
 	}, []);
 
-    const truncateString = (string, maxLength) => {
-        if (string?.length > maxLength) {
-            return string.slice(0, maxLength) + '...'
-        } else {
-            return string
-        }
-    }
+	const truncateString = (string, maxLength) => {
+		if (string?.length > maxLength) {
+			return string.slice(0, maxLength) + "...";
+		} else {
+			return string;
+		}
+	};
 
 	return (
 		<div className="w-full h-[550px] text-white">
