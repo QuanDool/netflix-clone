@@ -8,6 +8,7 @@ function Home() {
 		<div>
 			<Main />
 			<Row title="Upcoming" fetchURL={requests.requestUpcoming} />
+			<Row title="Top Rated" fetchURL={requests.requestTopRated} />
 		</div>
 	);
 }
