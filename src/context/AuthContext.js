@@ -9,7 +9,7 @@ import {
 
 const AuthContext = createContext();
 
-export function AuthContextProvider(children) {
+export function AuthContextProvider({ children }) {
 	const [user, setUser] = useState([]);
 
 	function signUp(email, password) {
@@ -20,7 +20,7 @@ export function AuthContextProvider(children) {
 		return signInWithEmailAndPassword(auth, email, password);
 	}
 
-	function signOut() {
+	function logOut() {
 		return signOut();
 	}
 
@@ -34,7 +34,7 @@ export function AuthContextProvider(children) {
 	});
 
 	return (
-		<AuthContext.Provider value={{ signUp, signIn, signOut, user }}>
+		<AuthContext.Provider value={{ signUp, signIn, logOut, user }}>
 			{children}
 		</AuthContext.Provider>
 	);
