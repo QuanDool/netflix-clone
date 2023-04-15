@@ -5,6 +5,8 @@ import { UserAuth } from "../context/AuthContext";
 function SignIn() {
 	const [userFields, setUserFields] = useState({ email: "", password: "" });
 	const { user, signUp } = UserAuth();
+	console.log(user);
+
 	const navigate = useNavigate();
 
 	const handleSubmit = async (event) => {
