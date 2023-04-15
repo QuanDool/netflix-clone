@@ -5,7 +5,6 @@ import { UserAuth } from "../context/AuthContext";
 function SignIn() {
 	const [userFields, setUserFields] = useState({ email: "", password: "" });
 	const { user, signUp } = UserAuth();
-	console.log(user);
 
 	const navigate = useNavigate();
 
@@ -13,6 +12,7 @@ function SignIn() {
 		event.preventDefault();
 		try {
 			await signUp(userFields.email, userFields.password);
+			console.log(user);
 			navigate("/");
 		} catch (error) {
 			console.log(error);

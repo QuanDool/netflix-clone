@@ -5,7 +5,6 @@ import { UserAuth } from "../context/AuthContext";
 function NavBar() {
 	const navigate = useNavigate();
 	const { user, logOut } = UserAuth();
-	console.log(user);
 
 	const handleLogOut = async () => {
 		try {
@@ -25,7 +24,7 @@ function NavBar() {
 			</Link>
 			{user?.email ? (
 				<div>
-					<Link to="/signin">
+					<Link to="/account">
 						<button className="text-white pr-4">Account</button>
 					</Link>
 					<button
