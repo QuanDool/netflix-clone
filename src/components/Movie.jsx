@@ -1,11 +1,28 @@
 import React, { useState } from "react";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
+import { UserAuth } from "../context/AuthContext";
+import { db } from "../firebase";
+import { arrayUnion, doc, updateDoc } from "firebase/firestore";
 
 function Movie({ movie }) {
 	const [like, setLike] = useState(false);
+	const [saved, setSaved] = useState(false);
+	const { user } = UserAuth();
 
-	const toggleLike = (event) => {
-		setLike(!like);
+	const userReference = doc(db, "users", `${user?.email}`);
+
+	const toggleLike = async (event) => {
+		if (user?.email) {
+			setLike(!like);
+			setSaved(true);
+			await updateDoc(userReference, {
+				savedMovies: arrayUnion({
+					id: movie.id,
+					title: movie.title,
+					img: movie.backdrop_path,
+				}),
+			});
+		}
 	};
 
 	return (
