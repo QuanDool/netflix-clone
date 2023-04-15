@@ -4,6 +4,7 @@ import { UserAuth } from "../context/AuthContext";
 
 function SignIn() {
 	const [userFields, setUserFields] = useState({ email: "", password: "" });
+	const [errorMessage, setErrorMessage] = useState("");
 	const { user, signIn } = UserAuth();
 
 	const navigate = useNavigate();
@@ -16,6 +17,7 @@ function SignIn() {
 			navigate("/");
 		} catch (error) {
 			console.log(error);
+			setErrorMessage("Wrong email or password");
 		}
 	};
 
@@ -29,11 +31,16 @@ function SignIn() {
 				/>
 				<div className="fixed w-full px-4 py-24 z-50">
 					<div className="max-w-[450px] h-[600px] mx-auto bg-black/75 text-white">
-						<div className="max-w-[320px] mx-auto py-16">
+						<div className="max-w-[320px] mx-auto py-16 relative">
 							<h1 className="text-3xl font-bold">Sign In</h1>
+							{errorMessage && (
+								<p className="text-red-600 text-sm absolute left-0 top-[110px]">
+									{errorMessage}
+								</p>
+							)}
 							<form
 								onSubmit={handleSubmit}
-								className="w-full flex flex-col py-4"
+								className="w-full flex flex-col py-4 mt-4"
 							>
 								<input
 									onChange={(event) =>

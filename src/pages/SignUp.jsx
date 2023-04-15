@@ -33,7 +33,7 @@ function SignIn() {
 							<h1 className="text-3xl font-bold">Sign Up</h1>
 							<form
 								onSubmit={handleSubmit}
-								className="w-full flex flex-col py-4"
+								className="w-full flex flex-col py-4 mt-4"
 							>
 								<input
 									onChange={(event) =>
